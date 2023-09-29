@@ -48,19 +48,16 @@ router.put("/:id", (req, res) => {
   // update a category by its `id` value
   Category.update(
     {
-      // All the fields you can update and the data attached to the request body.
       category_name: req.body.category_name,
     },
     {
-      // Gets the books based on the isbn given in the request parameters
       where: {
         id: req.params.id,
       },
     }
   )
-    .then((updatedBook) => {
-      // Sends the updated book as a json response
-      res.json(updatedBook);
+    .then((updatedCategory) => {
+      res.json(updatedCategory);
     })
     .catch((err) => res.json(err));
 });
